@@ -10,8 +10,10 @@ Pane {
     property string conversationStatus: ""
     property var messages: []
     property string messageLoadError: ""
+    property bool mobileMode: false
+    signal backRequested()
 
-    padding: 20
+    padding: root.mobileMode ? 12 : 20
 
     background: Rectangle {
         color: "#ffffff"
@@ -19,12 +21,14 @@ Pane {
 
     ColumnLayout {
         anchors.fill: parent
-        spacing: 16
+        spacing: root.mobileMode ? 10 : 16
 
         ChatHeader {
             Layout.fillWidth: true
             personName: root.conversationName
             status: root.conversationStatus
+            showBackButton: root.mobileMode
+            onBackRequested: root.backRequested()
         }
 
         Label {
@@ -73,5 +77,5 @@ Pane {
                 draftText = ""
             }
         }
-  }
+    }
 }

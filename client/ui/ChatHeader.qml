@@ -7,9 +7,20 @@ RowLayout {
 
     property string personName: ""
     property string status: ""
+    property bool showBackButton: false
+    signal backRequested()
 
     visible: personName.length > 0
     spacing: 10
+
+    ToolButton {
+        visible: root.showBackButton
+        text: "‹"
+        font.pixelSize: 30
+        Layout.preferredWidth: 38
+        Layout.preferredHeight: 38
+        onClicked: root.backRequested()
+    }
 
     Rectangle {
         Layout.preferredWidth: 38
@@ -30,7 +41,9 @@ RowLayout {
         spacing: 1
 
         Label {
+            Layout.fillWidth: true
             text: root.personName
+            elide: Text.ElideRight
             color: "#1d2939"
             font.pixelSize: 17
             font.weight: Font.DemiBold

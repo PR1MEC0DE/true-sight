@@ -1,14 +1,13 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
 
 ApplicationWindow {
     id: root
 
     width: 1000
     height: 700
-    minimumWidth: 800
-    minimumHeight: 560
+    minimumWidth: 320
+    minimumHeight: 480
     visible: true
     title: "TrueSight"
     color: "#f7f8fa"
@@ -161,5 +160,4 @@ ApplicationWindow {
             console.error("MESSAGE SEND FAILED:", error)
         }
     }
-
 }
